@@ -26,10 +26,19 @@ function NewPlayer ({onPlayerAdded}) {
             const result = await response.json();
 
             if (result.success) {
+                const addedPlayer = result.data.newPlayer;
                 setName('');
                 setBreed('');
                 setStatus('Player added!');
+
+                const storedIds = JSON.parse(localStorage.getItem('myPlayers')) || [];
+                localStorage.setItem('myPlayers', JSON.stringify([...storedIds, addedPlayer.id]));
+
                 if (onPlayerAdded) onPlayerAdded(); 
+            
+                console.log('API response result:', result);
+                console.log('Player data received:', result.data);
+            
             } else {
                 setStatus('Failed to add new player...');
             }

@@ -9,11 +9,17 @@ import SearchBar from './components/SearchBar'
 
 function App() {
 
-
+  // const [refresh, setRefresh] = useState(false);
+  // const triggerRefresh = () => setRefresh(prev => !prev);
 
 
   return (
   <div>
+
+    {/* <div>
+      <NewPlayer onPlayerAdded={triggerRefresh} />
+      <AllPlayers key={refresh} />
+    </div> */}
 
     <div id="nav" style={{display:"flex", justifyContent:"space-between"}}>
       <Link to="/">Home</Link>
